@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { authLogin } from '../../services/auth';
+//import  authLogin  from '../../services/auth';
 import { View, 
   KeyboardAvoidingView, 
   Image, 

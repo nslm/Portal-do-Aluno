@@ -6,15 +6,13 @@ import senha from '../pages/Login';
 //pythonProcess.stdout.on('data', (data) => { isLogin = data });
 
 export default function authLogin() {
-    
-    fetch('https://portalence.ibge.gov.br/gcad-aluno/', {
+    /*const url = 'https://portal-do-aluno.herokuapp.com/login';
+    fetch(url, {
     method: 'POST',
-    headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-    },
     body: JSON.stringify({
-        firstParam: 'yourValue',
-        secondParam: 'yourOtherValue'
-    });
+        matricula: '',
+        senha: ''
+    }).then(console.log(res));*/
+    return( {login = true} )
 };
+

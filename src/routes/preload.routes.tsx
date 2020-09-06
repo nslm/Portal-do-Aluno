@@ -1,7 +1,7 @@
  import React from 'react'; 
  import { createStackNavigator } from '@react-navigation/stack';  
 
- import Login from '../pages/Login';
+ import Preload from '../pages/Preload';
 
  const AuthStack = createStackNavigator();
 
@@ -11,7 +11,7 @@
             headerShown: false
        }}
      >
-         <AuthStack.Screen name="Login" component={Login} /> 
+         <AuthStack.Screen name="Preload" component={Preload} /> 
      </AuthStack.Navigator>
  );
 
