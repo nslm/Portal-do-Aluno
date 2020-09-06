@@ -1,6 +1,20 @@
 import React from 'react' ;
-import { View } from 'react-native';
+import { View , Text} from 'react-native';
+import matricula from '../Login';
+import senha from '../Login';
+const spawn = require("child_process").spawn;
+const pythonProcess = spawn('python', ["../../../scraper.py", matricula, senha]);
+var texto: string;
+pythonProcess.stdout.on('data', (data) => { texto = data });
 
-const Dashboard: React.FC = () => <View />;
+export default function Dashboard() {
+    return(
+        <View>
+            <Text>
+                texto
+            </Text>
+        </View>
 
-export default Dashboard;
+    );
+
+};

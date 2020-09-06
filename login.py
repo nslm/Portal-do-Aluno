@@ -18,5 +18,9 @@ form['login-form:j_idt22'] = senha
 br.submit_form(form)
 
 page = str(br.parsed())
-print(page)
+response = True
+if 'Login e senha de usuário não conferem no sistema.' in page:
+    response = False
+
+print(response)
 sys.stdout.flush()

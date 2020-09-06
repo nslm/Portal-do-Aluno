@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-//import { authLogin } from '../../services/auth';
+import { authLogin } from '../../services/auth';
 import { View, 
   KeyboardAvoidingView, 
-  Image, TextInput,  
+  Image, 
+  TextInput,  
   TouchableOpacity, 
   Text, 
   StyleSheet,
@@ -12,9 +13,18 @@ import { View,
 
 export default function Login() {
 
+  async function handleLogin() {
+    const response = authLogin()
+      console.log("senha aparecera aqui")
+  }
+
+
   const [offsetY] = useState(new Animated.Value( 90 )); 
   const [offsetX] = useState(new Animated.Value( 0 ));
   const [opacity] = useState(new Animated.Value(0));
+
+  const [matricula, setMatricula] = useState('');
+  const [senha, setSenha] = useState('');
 
   useEffect(()=> {
     Animated.spring(offsetY, {
@@ -61,7 +71,8 @@ export default function Login() {
        style={styles.input}
        placeholder="Matricula"
        autoCorrect={false}
-       onChangeText={()=>{}}
+       onChangeText={matricula => setMatricula(matricula)}
+       defaultValue={matricula}
        />
 
        <TextInput
@@ -69,10 +80,14 @@ export default function Login() {
        style={styles.input}
        placeholder="Senha"
        autoCorrect={false}
-       onChangeText={()=>{}}
+       onChangeText={senha => setSenha(senha)}
+       defaultValue={senha}
        />
 
-       <TouchableOpacity style={styles.btLogin}>
+       <TouchableOpacity 
+       style={styles.btLogin}
+       onPress={handleLogin}
+       >
          <Text style={styles.login}>
            Login
          </Text>
