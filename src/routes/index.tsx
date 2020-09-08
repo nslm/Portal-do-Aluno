@@ -1,28 +1,22 @@
-import React from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import React, { useContext } from 'react';
+//import { useEffect } from 'react-native'
 import AuthRoutes from './auth.routes';
 import AppRoutes from './app.routes';
-import PreloadRoutes from './preloud.routes';
-import isLogin from '../services/auth';
-import { useNavigation } from '@react-navigation/native';
+//import PreloadRoutes from './preload.routes';
+import { AuthContext } from '../contexts/auth';
+//import { useNavigation } from '@react-navigation/native';
 
 const Routes: React.FC = () => {
+    const { loged } = useContext(AuthContext);
     
-    const navigation = useNavigation();
+    if( loged==true ){
+        return < AppRoutes />;
+    } else {
+        return < AuthRoutes />;
+    }
 
-    useEffect(()=>{ 
-        navigation.navigate('PreloadRoutes')
-
-        const checkToken = async () => {
-            const token = await asyncStorage.getItem('token');
-            if(token) {
-                // validar token
-            } else {
-                navigation.navigate('AuthRoutes')
-            }
-        }
-        checkToken();
-    }, []);
+ 
+    
     
 };
 

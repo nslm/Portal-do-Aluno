@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-//import  authLogin  from '../../services/auth';
+import React, {useState, useEffect, useContext} from 'react';
+//import  { AuthProvider } from '../../contexts/auth';
+import { AuthContext } from '../../contexts/auth';
 import { View, 
   KeyboardAvoidingView, 
   Image, 
@@ -11,12 +12,14 @@ import { View,
   Keyboard 
   } from 'react-native';
 
-export default function Login() {
+export default function TelaLogin() {
+
+  const { Login} = useContext(AuthContext);
 
   async function handleLogin() {
-    const response = authLogin()
-      console.log("senha aparecera aqui")
-  }
+    await Login(matricula,senha);
+
+  };
 
 
   const [offsetY] = useState(new Animated.Value( 90 )); 

@@ -3,16 +3,16 @@
 
  import Preload from '../pages/Preload';
 
- const AuthStack = createStackNavigator();
+ const PreloadStack = createStackNavigator();
 
- const AuthRoutes: React.FC = () => (
-     <AuthStack.Navigator         
+ const PreloadRoutes: React.FC = () => (
+     <PreloadStack.Navigator         
          screenOptions={{
             headerShown: false
        }}
      >
-         <AuthStack.Screen name="Preload" component={Preload} /> 
-     </AuthStack.Navigator>
+         <PreloadStack.Screen name="Preload" component={Preload} /> 
+     </PreloadStack.Navigator>
  );
 
- export default AuthRoutes;
+ export default PreloadRoutes;
