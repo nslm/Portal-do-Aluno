@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-//const spawn = require("child_process").spawn;
+
 const axios = require('axios');
 
-async function storeData(token) {
+async function SaveToken(token) {
   try {
     await AsyncStorage.setItem(
       'token', 
@@ -28,12 +28,12 @@ export default async function authLogin(matricula,senha) {
 
     let res = await axios.post(url, params);
     if(res.data["Status"]){
-      storeData(res.data["token"]);
+      SaveToken(res.data["token"]);
       token = res.data["token"];
       name = res.data["name"];
       loged =  true;
     } else {
-      console.log("senha incorreta");
+      console.log("matricula ou senha incorreta");
           };    
 
     return ({loged, name, token});

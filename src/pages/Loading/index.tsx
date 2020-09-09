@@ -12,7 +12,7 @@ export default function Dashboard() {
     return(
         <View>
             <Text>
-                preload
+                Load
             </Text>
         </View>
 

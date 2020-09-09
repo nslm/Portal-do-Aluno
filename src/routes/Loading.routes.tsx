@@ -1,18 +1,18 @@
  import React from 'react'; 
  import { createStackNavigator } from '@react-navigation/stack';  
 
- import Preload from '../pages/Preload';
+ import Loading from '../pages/Loading';
 
- const PreloadStack = createStackNavigator();
+ const LoadingStack = createStackNavigator();
 
  const PreloadRoutes: React.FC = () => (
-     <PreloadStack.Navigator         
+     <LoadingStack.Navigator         
          screenOptions={{
             headerShown: false
        }}
      >
-         <PreloadStack.Screen name="Preload" component={Preload} /> 
-     </PreloadStack.Navigator>
+         <LoadingStack.Screen name="Loading" component={Loading} /> 
+     </LoadingStack.Navigator>
  );
 
  export default PreloadRoutes;

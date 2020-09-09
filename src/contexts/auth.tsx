@@ -1,6 +1,5 @@
 import React, { createContext, useReducer, useState } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
-//import { initialState, UserReducer } from '../reducers/user';
+//import AsyncStorage from '@react-native-community/async-storage';
 import  isLoged  from '../services/auth'
 
 const axios = require('axios')

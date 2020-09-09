@@ -1,4 +1,5 @@
-import React from 'react' ;
+import React, { useContext } from 'react' ;
+import { AuthContext } from '../../contexts/auth';
 import { View, 
     KeyboardAvoidingView, 
     Image, 
@@ -9,14 +10,16 @@ import { View,
     Animated,
     Keyboard 
     } from 'react-native';
-//const spawn = require("child_process").spawn;
-
 
 export default function Dashboard() {
+
+    const { name } = useContext(AuthContext);
+
     return(
         <View style={styles.background}>
             <Text>
                 dashboard
+                {name}
             </Text>
         </View>
 

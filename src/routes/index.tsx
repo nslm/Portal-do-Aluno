@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 //import { useEffect } from 'react-native'
 import AuthRoutes from './auth.routes';
 import AppRoutes from './app.routes';
-//import PreloadRoutes from './preload.routes';
+//import LoaddingRoutes from './loading.routes';
 import { AuthContext } from '../contexts/auth';
 //import { useNavigation } from '@react-navigation/native';
 
