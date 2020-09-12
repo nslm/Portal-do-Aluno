@@ -1,5 +1,4 @@
-import React, { useContext } from 'react' ;
-import { AuthContext } from '../../contexts/auth';
+import React from 'react';
 import { View, 
     KeyboardAvoidingView, 
     Image, 
@@ -11,15 +10,12 @@ import { View,
     Keyboard 
     } from 'react-native';
 
-export default function Dashboard() {
-
-    const { name } = useContext(AuthContext);
+export default function Datas() {
 
     return(
         <View style={styles.background}>
             <Text>
-                dashboard
-                {name}
+                datas
             </Text>
         </View>
 

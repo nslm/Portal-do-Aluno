@@ -1,21 +1,27 @@
-import React, { useContext } from 'react';
-//import { useEffect } from 'react-native'
+import React, { useState } from 'react';
 import AuthRoutes from './auth.routes';
 import AppRoutes from './app.routes';
-//import LoaddingRoutes from './loading.routes';
-import { AuthContext } from '../contexts/auth';
-//import { useNavigation } from '@react-navigation/native';
+//import AsyncStorage from '@react-native-community/async-storage';
+import { GetItem } from '../services/storage'
 
-const Routes: React.FC = () => {
-    const { loged } = useContext(AuthContext);
-    
-    if( loged==true ){
-        return < AppRoutes />;
-    } else {
-        return < AuthRoutes />;
-    }
 
- 
+
+
+const  Routes: React.FC = () => {
+  
+  const name = GetItem('name');
+  //const senha = GetItem('senha')
+  console.log('name')
+  console.log(name)
+
+  if( name ) {  
+      return < AuthRoutes />;
+        
+  } else { 
+
+      return < AppRoutes />;
+
+  }
     
     
 };

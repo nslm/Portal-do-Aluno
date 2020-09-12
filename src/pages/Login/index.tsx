@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { AuthContext } from '../../contexts/auth';
+import Login from '../../services/auth';
 import { View, 
   KeyboardAvoidingView, 
   Image, 
@@ -13,7 +13,6 @@ import { View,
 
 export default function TelaLogin() {
 
-  const { Login } = useContext(AuthContext);
 
   async function handleLogin() {
     await Login(matricula,senha);

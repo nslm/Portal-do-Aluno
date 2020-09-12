@@ -1,42 +1,32 @@
-import React, { createContext, useReducer, useState } from 'react';
-//import AsyncStorage from '@react-native-community/async-storage';
-import  isLoged  from '../services/auth'
-
-const axios = require('axios')
-
+import React, { createContext, useState } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
+import  DoLogin  from '../services/auth'
+import {  GetItem } from '../services/storage'
 interface AuthContextData {
-    loged: boolean;
-    name: string; 
-    token: string | null;
-    Login(): Promise<void> | null;
+    matricula: string | null;
+    senha: string | null;
+    name: string | null;
+
 }
 
-export const AuthContext = createContext<AuthContextData>({loged: false, name : '', token : null, null});
+
+export const AuthContext = createContext<AuthContextData>({ matricula:null, senha:null, name:null});
 
 export const AuthProvider: React.FC = ({ children }) => {
 
-  const [token, setToken] = useState<object | null>(null);
-  const [name, setName] = useState('');
-  const [loged, setLoged] = useState(false);
+    //const [matricula, setMatricula] = useState(null);
+    //const [senha, setSenha] = useState(null);
+    //const [name, setName] = useState<string | null>(null);
+  
+    //setMatricula(GetItem('matricula'));
+    //setSenha(GetItem('senha'));
+    const name = GetItem('name');
 
-  async function Login(matricula, senha) {  
-    const response = await isLoged(matricula, senha);
-    const {token} = response;
-    const {name} = response;
-    setToken(token);
-    setName(name);
-    if(token==null || token==''){
-      setLoged(false)
-    } else {
-      setLoged(true)
-    };
-  };
-
-  return (
-      <AuthContext.Provider value={{loged : loged, name, token, Login}}>
+    return (
+      <AuthContext.Provider value={{matricula:null, senha:null, name: name}}>
           { children }
       </AuthContext.Provider>  
-  );
+    );
 
 };
 
